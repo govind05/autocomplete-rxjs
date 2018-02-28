@@ -15,6 +15,7 @@ keyUp
   })
   .switchMap((val) => {
     return Rx.Observable.fromPromise(axios(`http://localhost:3000/names?name=${val}`))
+    .catch(() => Rx.Observable.empty())
   })
   .map(val => val.data)
   .subscribe(names => {
@@ -23,5 +24,5 @@ keyUp
       p.innerText = name;
       output.appendChild(p)
     })
-    console.log(names);
+    // console.log(names);
   })

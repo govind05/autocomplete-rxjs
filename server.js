@@ -20,8 +20,8 @@ app.get('/', (req, res) => {
 app.get('/names', (req, res) => {
   const regex = new RegExp('^' + req.query.name, 'i');
   const newContents = contents.filter(content => regex.test(content));
-  console.log(newContents);
-  console.log('', req.query.name)
+  // console.log(newContents);
+  // console.log('', req.query.name)
   res.status(200).json(newContents)
 })
 
