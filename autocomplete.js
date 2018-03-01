@@ -15,14 +15,22 @@ keyUp
   })
   .switchMap((val) => {
     return Rx.Observable.fromPromise(axios(`http://localhost:3000/names?name=${val}`))
-    .catch(() => Rx.Observable.empty())
+      .catch(() => Rx.Observable.empty())
   })
   .map(val => val.data)
   .subscribe(names => {
     names.map(name => {
       const p = document.createElement('div');
       p.innerText = name;
+      p.id = 'option';
+      p.onclick = (e) => onOptionSelection(e);
+      p.onmousemove = (e) => onOptionSelection(e);
       output.appendChild(p)
     })
     // console.log(names);
-  })
+  });
+// const option = document.querySelector('#option');
+
+onOptionSelection = (e) => {
+  input.value = e.toElement.innerText;
+}

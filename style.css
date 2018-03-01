@@ -3,12 +3,12 @@ body{
 }
 
 #output {
+  max-width: 500px;
     margin-top: 10px;
-    border: 2px solid plum;
 }
 
 #output div {
-    border-bottom: 1px solid plum;
+    border: 1px solid plum;
     padding: 15px;
     cursor: pointer;
 }
@@ -19,15 +19,11 @@ body{
     background-color: hsl(300, 100%, 30%)
 }
 
-#output div:last-child {
-    border: 0;
-    margin: 0;
-}
 
 #input {
     font-size: 20px;
     height: 30px;
-    width: 100%;
+    width: 300px;
     max-width: 500px;
     padding-left: 10px;
 }
